@@ -1,0 +1,41 @@
+.home-container {
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: relative;
+}
+
+.search-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-container p {
+    text-align: center;
+    margin: 10px;
+    font-size: 2.5rem;
+}
+
+.search-controls {
+    white-space: nowrap;
+}
+
+.search-controls > * {
+    font-size: 2rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.search-controls input {
+    width: 500px;
+    padding: 10px;
+}
+.search-controls button {
+    background-color: rgb(10, 106, 182);
+    color: white;
+    width: 60px;
+    padding: 11px;
+    cursor: pointer;
+    margin-left: 5px;
+}

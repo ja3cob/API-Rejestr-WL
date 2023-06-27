@@ -1,0 +1,26 @@
+﻿.navbar {
+  background: white;
+  height: 80px;
+  font-size: 2rem;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px 0 gray;
+}
+
+.navbar-logo {
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo:hover {
+  border-bottom: 4px solid #000;
+  transition: all 0.2s ease-out;
+}
