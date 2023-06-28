@@ -24,3 +24,9 @@
   border-bottom: 4px solid #000;
   transition: all 0.2s ease-out;
 }
+
+@media screen and (max-width: 960px) {
+  .navbar {
+    font-size: 1.5rem;
+  }
+}
