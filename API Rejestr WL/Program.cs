@@ -1,4 +1,6 @@
 
+using API_Rejestr_WL.Services;
+
 namespace API_Rejestr_WL
 {
     public class Program
@@ -10,6 +12,7 @@ namespace API_Rejestr_WL
             // Add services to the container.
 
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<IHttpClientService, HttpClientService>();
 
             var app = builder.Build();
 
