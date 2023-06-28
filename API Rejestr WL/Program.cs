@@ -25,6 +25,7 @@ namespace API_Rejestr_WL
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UsePathBase(new PathString("/api"));
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
