@@ -14,8 +14,8 @@ public class NipController : ControllerBase
     }
 
     [HttpGet]
-    [Route("/find")]
-    public async Task<ActionResult<CompanyModel>> Get([FromQuery] string nip)
+    [Route("/nip/{nip}")]
+    public async Task<ActionResult<CompanyModel>> Get([FromRoute] string nip)
     {
         var result = await _httpClientService.FetchCompany(nip);
         return result == null ? NotFound() : Ok(result);
