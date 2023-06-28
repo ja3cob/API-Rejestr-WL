@@ -7,7 +7,7 @@ export function NavMenu() {
         <>
             <nav className='navbar'>
                 <Link to='/' className='navbar-logo'>
-                    Witaj
+                    API Rejestru przedsiębiorców
                 </Link>
             </nav>
         </>
