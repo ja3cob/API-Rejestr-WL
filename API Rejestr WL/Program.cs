@@ -27,6 +27,11 @@ namespace API_Rejestr_WL
             app.UseStaticFiles();
             app.UseRouting();
 
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
             app.MapFallbackToFile("index.html");
 
             app.Run();
