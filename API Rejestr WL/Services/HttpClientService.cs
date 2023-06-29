@@ -1,4 +1,5 @@
 ﻿using API_Rejestr_WL.Models;
+using DatabaseProvider;
 using Newtonsoft.Json;
 
 namespace API_Rejestr_WL.Services;
@@ -7,8 +8,11 @@ public class HttpClientService : IHttpClientService
 {
     private const string WLApiAddress = "https://wl-api.mf.gov.pl/api/search/nip/";
     private readonly HttpClient _httpClient;
-    public HttpClientService()
+    private readonly IDatabaseService _databaseService;
+    public HttpClientService(IDatabaseService databaseService)
     {
+        _databaseService = databaseService;
+
         _httpClient = new HttpClient
         {
             BaseAddress = new Uri(WLApiAddress)
