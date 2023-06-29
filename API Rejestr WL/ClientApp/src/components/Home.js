@@ -5,6 +5,7 @@ import './Home.css';
 export function Home() {
   const [loader, setLoader] = useState(false);
   const [table, setTable] = useState(false);
+    const [cross, setCross] = useState(false);
   const inputRef = useRef(null);
   const navigate = useNavigate();
 
@@ -24,6 +25,7 @@ export function Home() {
                     <input ref={inputRef} className='search-input' type='text' placeholder='Wprowadź NIP...' />
                     <button onClick={Search}><i className='fa fa-search' /></button>
                     <div className={loader ? 'loader' : 'loader hidden'} />
+                    <div className={cross ? 'cross' : 'cross hidden'}><i className='fa-solid fa-xmark' /></div>
                 </div>
             </div>
             <div className='table-container'>
