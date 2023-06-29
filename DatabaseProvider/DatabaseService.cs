@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using DatabaseProvider.Models;
 using DatabaseProvider.Entities;
+using DatabaseProvider.Util;
 
 namespace DatabaseProvider;
 

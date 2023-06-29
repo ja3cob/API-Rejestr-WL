@@ -1,4 +1,4 @@
-﻿namespace DatabaseProvider;
+﻿namespace DatabaseProvider.Util;
 
 internal static class Constants
 {

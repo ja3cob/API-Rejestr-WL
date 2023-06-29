@@ -1,7 +1,7 @@
 ﻿using DatabaseProvider.Entities;
 using DatabaseProvider.Models;
 
-namespace DatabaseProvider;
+namespace DatabaseProvider.Util;
 
 internal static class Mapper
 {
@@ -58,8 +58,8 @@ internal static class Mapper
 
     public static Company? Map(this CompanyModel? company)
     {
-        if(company == null) { return null; }
-        if(company.Nip == null)
+        if (company == null) { return null; }
+        if (company.Nip == null)
         {
             throw new ArgumentException("Nip cannot be null");
         }
@@ -80,7 +80,7 @@ internal static class Mapper
         {
             foreach (PersonModel clerk in company.AuthorizedClerks)
             {
-                authorizedClerks.Add(new AuthorizedClerk { Person = clerk.Map()});
+                authorizedClerks.Add(new AuthorizedClerk { Person = clerk.Map() });
             }
         }
         if (company.Partners != null && company.Partners.Any())
@@ -123,7 +123,7 @@ internal static class Mapper
         };
     }
 
-    public static PersonModel Map(this Person person) 
+    public static PersonModel Map(this Person person)
     {
         return new PersonModel
         {
