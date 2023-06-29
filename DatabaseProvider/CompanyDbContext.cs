@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using DatabaseProvider.Entities;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Data.Sqlite;
-
 namespace DatabaseProvider;
 
 internal class CompanyDbContext : DbContext
