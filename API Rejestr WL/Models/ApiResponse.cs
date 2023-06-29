@@ -6,7 +6,7 @@ public class ApiResponse
 }
 public class ApiResponseModel
 {
-    public CompanyModel? Subject { get; set; }
+    public DatabaseProvider.Models.CompanyModel? Subject { get; set; }
     public string? RequestDateTime { get; set; }
     public string? RequestId { get; set; }
 }

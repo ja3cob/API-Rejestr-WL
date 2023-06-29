@@ -1,5 +1,5 @@
-using API_Rejestr_WL.Models;
 using API_Rejestr_WL.Services;
+using DatabaseProvider.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_Rejestr_WL.Controllers;

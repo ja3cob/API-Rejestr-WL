@@ -1,5 +1,6 @@
 ﻿using API_Rejestr_WL.Models;
 using DatabaseProvider;
+using DatabaseProvider.Models;
 using Newtonsoft.Json;
 
 namespace API_Rejestr_WL.Services;

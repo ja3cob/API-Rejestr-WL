@@ -1,4 +1,4 @@
-﻿using API_Rejestr_WL.Models;
+﻿using DatabaseProvider.Models;
 
 namespace API_Rejestr_WL.Services;
 

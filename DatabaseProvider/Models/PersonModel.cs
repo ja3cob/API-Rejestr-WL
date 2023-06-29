@@ -1,4 +1,4 @@
-﻿namespace API_Rejestr_WL.Models;
+﻿namespace DatabaseProvider.Models;
 
 public class PersonModel
 {
