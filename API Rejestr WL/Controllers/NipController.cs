@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API_Rejestr_WL.Controllers;
 
 [ApiController]
+[Route("[controller]")]
 public class NipController : ControllerBase
 {
     private readonly IHttpClientService _httpClientService;
@@ -14,7 +15,7 @@ public class NipController : ControllerBase
     }
 
     [HttpGet]
-    [Route("/nip/{nip}")]
+    [Route("{nip}")]
     public async Task<ActionResult<CompanyModel>> Get([FromRoute] string nip)
     {
         var result = await _httpClientService.FetchCompany(nip);
