@@ -1,12 +1,10 @@
 ﻿using API_Rejestr_WL.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace API_Rejestr_WL.Services;
 
 public class HttpClientService : IHttpClientService
 {
-    private const string DateTimeFormat = "dd-MM-yyyy HH:mm:ss";
     private const string WLApiAddress = "https://wl-api.mf.gov.pl/api/search/nip/";
     private readonly HttpClient _httpClient;
     public HttpClientService()
