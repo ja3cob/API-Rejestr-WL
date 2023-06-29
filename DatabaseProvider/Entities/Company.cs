@@ -4,10 +4,10 @@ namespace DatabaseProvider.Entities;
 
 internal class Company
 {
+    public string? Name { get; set; }
     [Required]
     [Key]
-    public string Name { get; set; }
-    public string? Nip { get; set; }
+    public string Nip { get; set; }
     public string? StatusVat { get; set; }
     public string? Regon { get; set; }
     public string? Pesel { get; set; }
