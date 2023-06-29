@@ -1,4 +1,5 @@
 using API_Rejestr_WL.Services;
+using DatabaseProvider;
 
 namespace API_Rejestr_WL;
 
@@ -9,6 +10,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddControllersWithViews();
+        builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
         builder.Services.AddSingleton<IHttpClientService, HttpClientService>();
 
         var app = builder.Build();
