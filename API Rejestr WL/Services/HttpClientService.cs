@@ -27,6 +27,9 @@ public class HttpClientService : IHttpClientService
         {
             return null;
         }
+        
+        CompanyModel? company = _databaseService.Get(nip);
+        if(company != null) { return company; }
 
         var currentDate = DateTime.Now.ToString("yyyy-MM-dd");
         var httpResponse = await _httpClient.GetAsync($"{nip}?date={currentDate}");
@@ -42,6 +45,12 @@ public class HttpClientService : IHttpClientService
             return null;
         }
 
-        return response.Result.Subject;
+        company = response.Result.Subject;
+        if (company != null)
+        {
+            _databaseService.Insert(company);
+        }
+
+        return company;
     }
 }
