@@ -1,5 +1,5 @@
 ﻿namespace DatabaseProvider;
 
-internal interface IDatabaseService
+public interface IDatabaseService
 {
 }
