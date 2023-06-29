@@ -44,12 +44,96 @@ export function Home() {
                     <div className={cross ? 'cross' : 'cross hidden'}><i className='fa-solid fa-xmark' /></div>
                 </div>
             </div>
-            <div className='table-container'>
-                {data ? (
-                        <span>{JSON.stringify(data, null, 2)}</span>
-                ) : (
-                    <p>No data to display.</p>
-                )}
+            <div className={table ? 'table-container' : 'table-container hidden'}>
+                {data &&
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colSpan={2}>
+                                    {data.name}
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Regon</td>
+                                <td>{data.regon}</td>
+                            </tr>
+                            <tr>
+                                <td>KRS</td>
+                                <td>{data.krs}</td>
+                            </tr>
+                            <tr>
+                                <td>NIP</td>
+                                <td>{data.nip}</td>
+                            </tr>
+                            <tr>
+                                <td>PESEL</td>
+                                <td>{data.pesel}</td>
+                            </tr>
+                            <tr>
+                                <td>Data wznowienia działalności</td>
+                                <td>{data.restorationDate}</td>
+                            </tr>
+                            <tr>
+                                <td>Podstawa wznowienia działalności</td>
+                                <td>{data.restorationBasis}</td>
+                            </tr>
+                            <tr>
+                                <td>Data wykreślenia</td>
+                                <td>{data.removalDate}</td>
+                            </tr>
+                            <tr>
+                                <td>Podstawa wykreślenia</td>
+                                <td>{data.removalBasis}</td>
+                            </tr>
+                            <tr>
+                                <td>Data odmowy rejestracji</td>
+                                <td>{data.registrationDenialDate}</td>
+                            </tr>
+                            <tr>
+                                <td>Podstawa odmowy rejestracji</td>
+                                <td>{data.registrationDenialBasis}</td>
+                            </tr>
+                            <tr>
+                                <td>Prawna data rejestracji</td>
+                                <td>{data.registrationLegalDate}</td>
+                            </tr>
+                            <tr>
+                                <td>Adres roboczy</td>
+                                <td>{data.workingAddress}</td>
+                            </tr>
+                            <tr>
+                                <td>Adres siedziby</td>
+                                <td>{data.residenceAddress}</td>
+                            </tr>
+                            <tr>
+                                <td>Autoryzowani urzędnicy</td>
+                                <td><ul>{data.authorizedClerks.map((item, index) => (<li key={index}>{item}</li>))}</ul></td>
+                            </tr>
+                            <tr>
+                                <td>Czy posiada wirtualne konta</td>
+                                <td>{data.hasVirtualAccounts ? 'Tak' : 'Nie'}</td>
+                            </tr>
+                            <tr>
+                                <td>Status VAT</td>
+                                <td>{data.statusVat}</td>
+                            </tr>
+                            <tr>
+                                <td>Numery kont</td>
+                                <td>{data.accountNumbers.map((item, index) => (<li key={index}>{item}</li>))}</td>
+                            </tr>
+                            <tr>
+                                <td>Partnerzy</td>
+                                <td>{data.partners.map((item, index) => (<li key={index}>{item.firstName} {item.lastName}</li>))}</td>
+                            </tr>
+                            <tr>
+                                <td>Reprezentanci</td>
+                                <td>{data.representatives.map((item, index) => (<li key={index}>{item.firstName} {item.lastName}</li>))}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
             </div>
         </div>
     );
