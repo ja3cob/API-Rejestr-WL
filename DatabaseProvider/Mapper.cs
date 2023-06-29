@@ -9,15 +9,37 @@ internal static class Mapper
     {
         if (company == null) { return null; }
 
+        var accountNumbers = new List<string>();
+        var authorizedClerks = new List<PersonModel>();
+        var partners = new List<PersonModel>();
+        var representatives = new List<PersonModel>();
+
+        if (company.AccountNumbers != null)
+        {
+            accountNumbers = company.AccountNumbers.Select(p => p.Number).ToList();
+        }
+        if (company.AuthorizedClerks != null)
+        {
+            authorizedClerks = company.AuthorizedClerks.Select(p => p.Person.Map()).ToList();
+        }
+        if (company.Partners != null)
+        {
+            partners = company.Partners.Select(p => p.Person.Map()).ToList();
+        }
+        if (company.Representatives != null)
+        {
+            representatives = company.Representatives.Select(p => p.Person.Map()).ToList();
+        }
+
         return new CompanyModel
         {
-            AccountNumbers = company.AccountNumbers?.Select(p => p.Number).ToList(),
-            AuthorizedClerks = company.AuthorizedClerks?.Select(p => p.Person.Map()).ToList(),
+            AccountNumbers = accountNumbers,
+            AuthorizedClerks = authorizedClerks,
             HasVirtualAccounts = company.HasVirtualAccounts,
             Krs = company.Krs,
             Name = company.Name,
             Nip = company.Nip,
-            Partners = company.Partners?.Select(p => p.Person.Map()).ToList(),
+            Partners = partners,
             Pesel = company.Pesel,
             RegistrationDenialBasis = company.RegistrationDenialBasis,
             RegistrationDenialDate = company.RegistrationDenialDate,
@@ -25,7 +47,7 @@ internal static class Mapper
             Regon = company.Regon,
             RemovalBasis = company.RemovalBasis,
             RemovalDate = company.RemovalDate,
-            Representatives = company.Representatives?.Select(p => p.Person.Map()).ToList(),
+            Representatives = representatives,
             ResidenceAddress = company.ResidenceAddress,
             RestorationBasis = company.RestorationBasis,
             RestorationDate = company.RestorationDate,
@@ -42,14 +64,13 @@ internal static class Mapper
             throw new ArgumentException("Nip cannot be null");
         }
 
-        List<Account>? accountNumbers = null;
-        List<AuthorizedClerk>? authorizedClerks = null;
-        List<Partner>? partners = null;
-        List<Representative>? representatives = null;
+        var accountNumbers = new List<Account>();
+        var authorizedClerks = new List<AuthorizedClerk>();
+        var partners = new List<Partner>();
+        var representatives = new List<Representative>();
 
         if (company.AccountNumbers != null && company.AccountNumbers.Any())
         {
-            accountNumbers = new List<Account>();
             foreach (string number in company.AccountNumbers)
             {
                 accountNumbers.Add(new Account { Number = number });
@@ -57,7 +78,6 @@ internal static class Mapper
         }
         if (company.AuthorizedClerks != null && company.AuthorizedClerks.Any())
         {
-            authorizedClerks = new List<AuthorizedClerk>();
             foreach (PersonModel clerk in company.AuthorizedClerks)
             {
                 authorizedClerks.Add(new AuthorizedClerk { Person = clerk.Map()});
@@ -65,7 +85,6 @@ internal static class Mapper
         }
         if (company.Partners != null && company.Partners.Any())
         {
-            partners = new List<Partner>();
             foreach (PersonModel partner in company.Partners)
             {
                 partners.Add(new Partner { Person = partner.Map() });
@@ -73,7 +92,6 @@ internal static class Mapper
         }
         if (company.Representatives != null && company.Representatives.Any())
         {
-            representatives = new List<Representative>();
             foreach (PersonModel representative in company.Representatives)
             {
                 representatives.Add(new Representative { Person = representative.Map() });
