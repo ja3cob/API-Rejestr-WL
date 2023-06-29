@@ -24,7 +24,7 @@ public class HttpClientService : IHttpClientService
         }
 
         var currentDate = DateTime.Now.ToString("yyyy-MM-dd");
-        var httpResponse = await _httpClient.GetAsync($"{nip}?date={currentDate}").ConfigureAwait(false);
+        var httpResponse = await _httpClient.GetAsync($"{nip}?date={currentDate}");
         if (httpResponse == null || !httpResponse.IsSuccessStatusCode)
         { 
             return null; 
