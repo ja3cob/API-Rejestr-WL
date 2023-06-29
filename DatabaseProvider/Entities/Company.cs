@@ -1,7 +1,11 @@
-﻿namespace DatabaseProvider.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DatabaseProvider.Entities;
 
 internal class Company
 {
+    [Required]
+    [Key]
     public string Name { get; set; }
     public string? Nip { get; set; }
     public string? StatusVat { get; set; }
