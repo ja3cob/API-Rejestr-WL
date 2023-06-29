@@ -4,7 +4,7 @@ namespace DatabaseProvider.Entities;
 
 internal class Company
 {
-    public string? Name { get; set; }
+    public string Name { get; set; }
     [Required]
     [Key]
     public string Nip { get; set; }
